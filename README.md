@@ -1,2 +1,2 @@
-# PracticasBD
-Repositorio de Practicas Varias de Base de Datos
+## Practicas BD
+### Repositorio de Praticas de dias varios.
