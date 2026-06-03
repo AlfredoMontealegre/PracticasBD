@@ -199,7 +199,6 @@ insert into tratamientos (descripcion, id_paciente) values
 ('tratamiento9',9),
 ('tratamiento10',10);
 
--- 57. medicamentos (20)
 insert into medicamentos (nombre, id_tratamiento) values
 ('Paracetamol',1),('Paracetamol Noche',1),
 ('Virogrip',2),('Virogrip Dia',2),
@@ -223,54 +222,3 @@ insert into habitaciones (numero, id_paciente, disponibilidad) values
 (108,null,1),
 (109,null,1),
 (110,null,1);
-
-insert into pacientes (nombre_paciente, genero, correo, telefono, direccion, tipo_sangre, fecha_nacimiento)
-values ('extra1',1,'extra1@gmail.com','8888','dir1','o+','2000-01-01');
-
-insert into medicos (nombre_medico, correo, salario, id_especialidad)
-values ('especialista1','esp1@gmail.com',2500,1);
-
-insert into citas (id_paciente, id_medico, fecha)
-values (1,1,getdate());
-
-insert into citas (id_paciente, id_medico, fecha)
-values (2,2,dateadd(day,5,getdate()));
-
-insert into habitaciones (numero, id_paciente, disponibilidad)
-values (201,1,0);
-
-insert into habitaciones (numero, id_paciente, disponibilidad)
-values (202,null,1);
-
-insert into tratamientos (descripcion, id_paciente)
-values ('activo',1);
-
-insert into tratamientos (descripcion, id_paciente)
-values ('finalizado',2);
-
--- Modulo 6, update
-
-/* Modificamos el numero del paciente a este nuevo */
-update pacientes
-set telefono = '59231103'
-where id_paciente = 1;
-go
-
--- Modulo 7, delete
-
-/* Se borra el medicamento/os con la ID 2 */
-delete from medicamentos where id_medicamento = 2;
-go
-
--- Modulo 8, select
-
-/* Consultas */
-
-select * from pacientes;
-
-select p.nombre_paciente, c.fecha, m.nombre_medico
-from citas c
-join pacientes p on c.id_paciente = p.id_paciente
-join medicos m on c.id_medico = m.id_medico;
-
-select count(*) as total_pacientes from pacientes;
