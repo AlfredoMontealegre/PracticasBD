@@ -222,3 +222,60 @@ insert into habitaciones (numero, id_paciente, disponibilidad) values
 (108,null,1),
 (109,null,1),
 (110,null,1);
+
+-- Luego de las insercciones de los datos vamos a insertar lo datos q ya tenemos
+
+-- Inserccion de pacientes en todos los campos:
+
+-- Pacientes en todos los campos medicos anteriores.
+insert into pacientes 
+(nombre_paciente, genero, correo, telefono, direccion, tipo_sangre, fecha_nacimiento)
+values
+('Debora Solis',1,'debsol@gmail.com','4199121','Managua','O+','2000-01-01'),
+('Juan Roman',0,'juanroam@gmail.com','69311952','Leon','A+','1998-05-10');
+
+-- Medicos Especialistas (agregamos)
+insert into medicos (nombre_medico, correo, salario, id_especialidad, experiencia, turno)
+values
+('Dr Especialista Cacao 1','espcaco@gmail.com',2500,1,10,'mañana'),
+('Dra Especialista Quesillo 2','espques@gmail.com',2600,2,8,'tarde');
+
+--	Citas con la fecha actual (getdate())
+insert into citas (id_paciente, id_medico, fecha, estado, costo_consulta)
+values
+(1,1,getdate(),'realizada',500),
+(2,2,getdate(),'realizada',600);
+
+-- Citas para el Futuro
+insert into citas (id_paciente, id_medico, fecha, estado, costo_consulta)
+values
+(3,3,dateadd(day,5,getdate()),'pendiente',700),
+(4,4,dateadd(day,10,getdate()),'pendiente',800);
+
+-- Habitaciones Ocupadas (disponib es 0)
+insert into habitaciones (numero, id_paciente, disponibilidad)
+values
+(201,1,0),
+(202,2,0);
+
+-- Habitaciones Disponibles (dispon es 1)
+insert into habitaciones (numero, id_paciente, disponibilidad)
+values
+(203,null,1),
+(204,null,1);
+
+-- Tratamientos Activos
+insert into tratamientos (descripcion, id_paciente)
+values
+('tratamiento activo',3),
+('tratamiento activo',4);
+
+-- Los Tratamientos Finalizados
+insert into tratamientos (descripcion, id_paciente)
+values
+('tratamiento finalizado',5),
+('tratamiento finalizado',6);
+
+/* Modulo VI: Update de los modulos medicos anteriores */
+
+-- Actualizacion del telefono de un paciente
