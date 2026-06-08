@@ -73,6 +73,20 @@ go
 
 /* Parte II: Modificacion de Estructuras (ALTER) */
 
+ALTER TABLE TEmpleado add cEmail nvarchar(50);
+ALTER TABLE TEmpleado add cTelefono nvarchar(8);
+ALTER TABLE TEmpleado alter column cNombre varchar(100);
+ALTER TABLE TEmpleado alter column cApellido varchar(100);
+ALTER TABLE TEmpleado add cDireccion nvarchar(MAX);
+ALTER TABLE TEmpleado add constraint CHK_Edad check (nEdad between 18 and 65);
+ALTER TABLE TEmpleado add bActivo bit default = 1;
+
+ALTER TABLE TEmpleado drop column cDireccion;
+ALTER TABLE TEmpleado alter column cTelefono(20)
+ALTER TABLE TEmpleado add cGenero bit;
+ALTER TABLE TEmpleado add dFechaNacimiento date;
+
+
 /* Parte III: Insercion de Datos (INSERT) */
 
 /* Parte IV: Actualizacion de Datos (UPDATE) */
