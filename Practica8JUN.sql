@@ -190,3 +190,27 @@ WHERE nProyectoID = 1;
 
 -- 48
 INSERT INTO TEmpleadoProyecto VALUES (1,2);
+
+/* Parte V: Deletes, todo lo q se debe borrar de la base de datos */
+
+-- 49
+DELETE FROM TEmpleado
+WHERE cNIF = '001';
+
+-- 50
+DELETE FROM TEmpleado
+WHERE bActivo = 0;
+
+-- 51
+DELETE FROM TProyecto
+WHERE nProyectoID = 3;
+
+-- 52
+DELETE FROM TEmpleadoProyecto
+WHERE nEmpleadoID = 2;
+
+-- 53
+DELETE FROM TDepartamento
+WHERE nDepartamentoID NOT IN (
+    SELECT nDepartamentoID FROM TEmpleado
+);
